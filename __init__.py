@@ -93,20 +93,18 @@ def save_one(e, msg):
     else:
         Log.info('File was moved or deleted: ' + fn)
 
+
 def check_ignore_saving_trim_spaces(return_option = False):
     if opt_ignore_saving_trim_spaces:
         if return_option:
             if global_prop_saving_trim_spaces:
                 ed.set_prop(PROP_SAVING_TRIM_SPACES, True)
-        else:
-            ed.set_prop(PROP_SAVING_TRIM_SPACES, False)
-
-    if opt_ignore_saving_trim_spaces:
-        if return_option:
             if global_prop_saving_trim_final_empty_lines:
                 ed.set_prop(PROP_SAVING_TRIM_FINAL_EMPTY_LINES, True)
         else:
+            ed.set_prop(PROP_SAVING_TRIM_SPACES, False)
             ed.set_prop(PROP_SAVING_TRIM_FINAL_EMPTY_LINES, False)
+
 
 def timer_tick(tag='', info=''):
     save_all('By timer')
